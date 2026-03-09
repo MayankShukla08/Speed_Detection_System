@@ -1,0 +1,8 @@
+_id,License Plate,Name,Violation Date,Violation Type,Zone,Location,Speed Limit,Recorded Speed,Evidence,Officer,Notes,Status,Action Taken,Frequency,Notified,Notification Date
+1,TN09Z4321,,2025-03-12T00:00:00.000Z,Speeding,Zone A,Location A,60,80,speeding_image_001.jpg,Officer A,First speeding violation,Recorded,,,false,
+2,MH12BG9876,Vikram Singh,2025-03-15T00:00:00.000Z,Parking Violation,Zone B,Location B,,,parking_image_001.jpg,Officer B,Parking violation at no-parking zone,Processed,Fine Imposed,2,true,2025-03-26T21:44:27.000Z
+3,KA01XY5678,Neha Agarwal,2025-03-18T00:00:00.000Z,Running a Red Light,Zone C,Location C,,,red_light_image_001.jpg,Officer C,Vehicle ran the red light at the intersection,Processed,Fine Imposed,5,true,2025-03-26T21:44:27.000Z
+4,DL1AB2345,Amit Verma,2025-03-20T00:00:00.000Z,Speeding,Zone D,Location D,60,85,speeding_image_002.jpg,Officer D,Second speeding violation,Processed,Warning Issued,3,true,2025-03-26T21:44:27.000Z
+5,GJ05AB1234,Shweta Patel,2025-03-22T00:00:00.000Z,Parking Violation,Zone E,Location E,,,parking_image_002.jpg,Officer E,Vehicle parked in a no-parking zone,Processed,Fine Imposed,1,true,2025-03-26T21:44:27.000Z
+6,RJ14CD8765,Manoj Yadav,2025-03-25T00:00:00.000Z,Running a Red Light,Zone F,Location F,,,red_light_image_002.jpg,Officer F,Vehicle ran a red light at the intersection,Processed,Fine Imposed,2,true,2025-03-26T21:44:27.000Z
+7,KL08FG2345,Divya Nair,2025-03-28T00:00:00.000Z,Speeding,Zone G,Location G,60,75,speeding_image_003.jpg,Officer G,Third speeding violation,Processed,Warning Issued,4,false, 

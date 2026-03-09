@@ -1,0 +1,26 @@
+[
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610caa"},
+    "max_speed": 60,
+    "notification_template": "Dear {owner_name},\n\nYour vehicle with license plate {license_plate} has been involved in a {violation_type} violation on {violation_date} at {violation_time}.\n\nLocation: {location}\nFrequency: {frequency}\n\nPlease drive safely.\n\nRegards,\nTraffic Management System",
+    "email_settings": {
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "smtp_username": "traffic.notification@example.com",
+      "smtp_password": "examplepassword123"
+    },
+    "updated_at": {"$date": "2023-11-15T10:30:00Z"},
+    "system_settings": {
+      "violation_retention_days": 365,
+      "automatic_notification": true,
+      "daily_report_enabled": true,
+      "report_recipients": ["admin@example.com", "manager@example.com"]
+    },
+    "speed_thresholds": {
+      "residential": 30,
+      "school_zone": 20,
+      "highway": 65,
+      "downtown": 40
+    }
+  }
+] 

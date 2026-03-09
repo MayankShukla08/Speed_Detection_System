@@ -1,0 +1,120 @@
+[
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca0"},
+    "License Plate": "MH-01-AB-1234",
+    "Violation Type": "Speeding",
+    "Violation Date": {"$date": "2023-11-10T14:35:22Z"},
+    "Zone": "Highway 101",
+    "Location": "Highway 101, Mile 25",
+    "Speed Limit": 60,
+    "Recorded Speed": 75,
+    "Evidence": "cam_01_20231110_143522.jpg",
+    "Officer": "John Smith",
+    "Notes": "Vehicle was observed traveling significantly above the speed limit in moderate traffic."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca1"},
+    "License Plate": "MH-02-CD-5678",
+    "Violation Type": "Red Light",
+    "Violation Date": {"$date": "2023-11-12T09:20:15Z"},
+    "Zone": "Main Street",
+    "Location": "Main Street & Oak Avenue",
+    "Evidence": "cam_03_20231112_092015.jpg",
+    "Officer": "Robert Johnson",
+    "Notes": "Vehicle proceeded through intersection after signal had turned red."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca2"},
+    "License Plate": "MH-03-EF-9012",
+    "Violation Type": "Illegal Parking",
+    "Violation Date": {"$date": "2023-11-15T17:45:30Z"},
+    "Zone": "Central Mall",
+    "Location": "Central Mall Parking",
+    "Evidence": "officer_cam_20231115_174530.jpg",
+    "Officer": "Emily Parker",
+    "Notes": "Vehicle parked in handicapped spot without proper permit."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca3"},
+    "License Plate": "MH-04-GH-3456",
+    "Violation Type": "No Seat Belt",
+    "Violation Date": {"$date": "2023-11-18T11:15:40Z"},
+    "Zone": "River Road",
+    "Location": "River Road",
+    "Evidence": "cam_05_20231118_111540.jpg",
+    "Officer": "Michael Wilson",
+    "Notes": "Driver observed without seatbelt during routine patrol."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca4"},
+    "License Plate": "MH-05-IJ-7890",
+    "Violation Type": "Speeding",
+    "Violation Date": {"$date": "2023-11-20T08:05:25Z"},
+    "Zone": "School Zone",
+    "Location": "School Zone, Elementary School",
+    "Speed Limit": 40,
+    "Recorded Speed": 68,
+    "Evidence": "cam_02_20231120_080525.jpg",
+    "Officer": "Sarah Thompson",
+    "Notes": "Vehicle exceeding speed limit in school zone during morning drop-off hours."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca5"},
+    "License Plate": "MH-06-KL-1234",
+    "Violation Type": "Wrong Way",
+    "Violation Date": {"$date": "2023-11-22T16:30:10Z"},
+    "Zone": "Downtown",
+    "Location": "One Way Street, Downtown",
+    "Evidence": "cam_04_20231122_163010.jpg",
+    "Officer": "David Brown",
+    "Notes": "Vehicle traveling in wrong direction on clearly marked one-way street."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca6"},
+    "License Plate": "MH-01-AB-1234",
+    "Violation Type": "Speeding",
+    "Violation Date": {"$date": "2023-11-24T12:40:50Z"},
+    "Zone": "Broadway Avenue",
+    "Location": "Broadway Avenue",
+    "Speed Limit": 50,
+    "Recorded Speed": 72,
+    "Evidence": "cam_06_20231124_124050.jpg",
+    "Officer": "Jessica Wilson",
+    "Notes": "Second speeding violation this month for this vehicle."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca7"},
+    "License Plate": "MH-07-MN-5678",
+    "Violation Type": "No Helmet",
+    "Violation Date": {"$date": "2023-11-25T19:55:30Z"},
+    "Zone": "College Road",
+    "Location": "College Road",
+    "Evidence": "cam_07_20231125_195530.jpg",
+    "Officer": "Thomas Anderson",
+    "Notes": "Rider observed without helmet during evening patrol."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca8"},
+    "License Plate": "MH-08-OP-9012",
+    "Violation Type": "Speeding",
+    "Violation Date": {"$date": "2023-11-26T07:15:40Z"},
+    "Zone": "Highway 101",
+    "Location": "Highway 101, Mile 32",
+    "Speed Limit": 60,
+    "Recorded Speed": 82,
+    "Evidence": "cam_01_20231126_071540.jpg",
+    "Officer": "John Smith",
+    "Notes": "Vehicle speeding in light traffic conditions."
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610ca9"},
+    "License Plate": "MH-02-CD-5678",
+    "Violation Type": "No Stop",
+    "Violation Date": {"$date": "2023-11-28T15:25:20Z"},
+    "Zone": "Residential Area",
+    "Location": "Pine Street & Maple Avenue",
+    "Evidence": "cam_08_20231128_152520.jpg",
+    "Officer": "Amanda Lee",
+    "Notes": "Vehicle failed to stop at stop sign in residential area."
+  }
+] 

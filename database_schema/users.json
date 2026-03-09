@@ -1,0 +1,54 @@
+[
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c85"},
+    "username": "admin",
+    "email": "admin@example.com",
+    "password": "admin123",
+    "role": "admin", 
+    "status": true,
+    "createdAt": {"$date": "2023-10-15T10:00:00Z"},
+    "lastLogin": {"$date": "2023-11-25T15:30:45Z"},
+    "is_admin": true
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c86"},
+    "username": "user1",
+    "email": "user1@example.com",
+    "password": "user123",
+    "role": "user",
+    "status": true,
+    "createdAt": {"$date": "2023-10-16T11:20:00Z"},
+    "lastLogin": {"$date": "2023-11-20T09:15:30Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c87"},
+    "username": "inspector1",
+    "email": "inspector1@example.com",
+    "password": "inspector123",
+    "role": "inspector",
+    "status": true,
+    "createdAt": {"$date": "2023-10-17T09:45:00Z"},
+    "lastLogin": {"$date": "2023-11-24T14:25:10Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c88"},
+    "username": "operator1",
+    "email": "operator1@example.com",
+    "password": "operator123",
+    "role": "operator",
+    "status": false,
+    "createdAt": {"$date": "2023-10-18T13:30:00Z"},
+    "lastLogin": null
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c89"},
+    "username": "manager1",
+    "email": "manager1@example.com",
+    "password": "manager123",
+    "role": "admin",
+    "status": true,
+    "is_admin": true,
+    "createdAt": {"$date": "2023-10-19T16:15:00Z"},
+    "lastLogin": {"$date": "2023-11-22T11:40:20Z"}
+  }
+] 

@@ -1,0 +1,98 @@
+[
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c90"},
+    "Name": "John Doe",
+    "Licence Plate": "MH-01-AB-1234",
+    "Email": "john.doe@example.com",
+    "Mobile Number": "9876543210",
+    "Vehicle Type": "Car",
+    "Model": "Toyota Camry",
+    "Year": 2020,
+    "Color": "White",
+    "Registration Date": {"$date": "2020-05-15T00:00:00Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c91"},
+    "Name": "Jane Smith",
+    "Licence Plate": "MH-02-CD-5678",
+    "Email": "jane.smith@example.com",
+    "Mobile Number": "8765432109",
+    "Vehicle Type": "SUV",
+    "Model": "Honda CR-V",
+    "Year": 2019,
+    "Color": "Silver",
+    "Registration Date": {"$date": "2019-11-23T00:00:00Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c92"},
+    "Name": "Robert Johnson",
+    "Licence Plate": "MH-03-EF-9012",
+    "Email": "robert.j@example.com",
+    "Mobile Number": "7654321098",
+    "Vehicle Type": "Truck",
+    "Model": "Ford F-150",
+    "Year": 2021,
+    "Color": "Black",
+    "Registration Date": {"$date": "2021-02-10T00:00:00Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c93"},
+    "Name": "Emily Davis",
+    "Licence Plate": "MH-04-GH-3456",
+    "Email": "emily.d@example.com",
+    "Mobile Number": "6543210987",
+    "Vehicle Type": "Sedan",
+    "Model": "Hyundai Elantra",
+    "Year": 2018,
+    "Color": "Red",
+    "Registration Date": {"$date": "2018-08-05T00:00:00Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c94"},
+    "Name": "Michael Wilson",
+    "Licence Plate": "MH-05-IJ-7890",
+    "Email": "michael.w@example.com",
+    "Mobile Number": "5432109876",
+    "Vehicle Type": "Hatchback",
+    "Model": "Maruti Swift",
+    "Year": 2022,
+    "Color": "Blue",
+    "Registration Date": {"$date": "2022-01-18T00:00:00Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c95"},
+    "Name": "Sarah Thompson",
+    "Licence Plate": "MH-06-KL-1234",
+    "Email": "sarah.t@example.com",
+    "Mobile Number": "4321098765",
+    "Vehicle Type": "Minivan",
+    "Model": "Toyota Innova",
+    "Year": 2021,
+    "Color": "Grey",
+    "Registration Date": {"$date": "2021-07-25T00:00:00Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c96"},
+    "Name": "David Brown",
+    "Licence Plate": "MH-07-MN-5678",
+    "Email": "david.b@example.com",
+    "Mobile Number": "3210987654",
+    "Vehicle Type": "SUV",
+    "Model": "Mahindra XUV700",
+    "Year": 2023,
+    "Color": "White",
+    "Registration Date": {"$date": "2023-03-12T00:00:00Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610c97"},
+    "Name": "Jessica Wilson",
+    "Licence Plate": "MH-08-OP-9012",
+    "Email": "jessica.w@example.com",
+    "Mobile Number": "2109876543",
+    "Vehicle Type": "Sedan",
+    "Model": "Honda City",
+    "Year": 2020,
+    "Color": "Black",
+    "Registration Date": {"$date": "2020-09-30T00:00:00Z"}
+  }
+] 

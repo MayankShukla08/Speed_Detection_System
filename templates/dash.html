@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Traffic Dashboard Guardian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --background: 210 40% 98%;
+            --foreground: 222 47% 11%;
+            --card: 0 0% 100%;
+            --card-foreground: 222 47% 11%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222 47% 11%;
+            --primary: 210 100% 50%;
+            --primary-foreground: 210 40% 98%;
+            --secondary: 210 40% 96%;
+            --secondary-foreground: 222 47% 11%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215 16% 47%;
+            --accent: 210 40% 96%;
+            --accent-foreground: 222 47% 11%;
+            --destructive: 0 84% 60%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 214 32% 91%;
+            --input: 214 32% 91%;
+            --ring: 222 84% 5%;
+            --radius: 0.75rem;
+            --sidebar-background: 210 40% 100%;
+            --sidebar-foreground: 222 47% 11%;
+            --sidebar-primary: 210 100% 50%;
+            --sidebar-primary-foreground: 0 0% 100%;
+            --sidebar-accent: 210 40% 96%;
+            --sidebar-accent-foreground: 222 47% 11%;
+            --sidebar-border: 214 32% 91%;
+            --sidebar-ring: 217 91% 60%;
+        }
+        .dark {
+            --background: 222 47% 11%;
+            --foreground: 210 40% 98%;
+            --card: 222 47% 11%;
+            --card-foreground: 210 40% 98%;
+            --popover: 222 47% 11%;
+            --popover-foreground: 210 40% 98%;
+            --primary: 210 100% 50%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 217 33% 18%;
+            --secondary-foreground: 210 40% 98%;
+            --muted: 217 33% 18%;
+            --muted-foreground: 215 20% 65%;
+            --accent: 217 33% 18%;
+            --accent-foreground: 210 40% 98%;
+            --destructive: 0 63% 31%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 217 33% 18%;
+            --input: 217 33% 18%;
+            --ring: 212 27% 84%;
+            --sidebar-background: 222 47% 11%;
+            --sidebar-foreground: 210 40% 98%;
+            --sidebar-primary: 210 100% 50%;
+            --sidebar-primary-foreground: 0 0% 100%;
+            --sidebar-accent: 217 33% 18%;
+            --sidebar-accent-foreground: 210 40% 98%;
+            --sidebar-border: 217 33% 18%;
+            --sidebar-ring: 217 91% 60%;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-color: hsl(var(--border));
+            -webkit-tap-highlight-color: transparent;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            height: -webkit-fill-available;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: hsl(var(--foreground));
+            background-color: hsl(var(--background));
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: hsl(var(--muted-foreground)/0.2);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: hsl(var(--muted-foreground)/0.4);
+        }
+        .min-h-screen {
+            min-height: 100vh;
+        }
+        .bg-background {
+            background-color: hsl(var(--background));
+        }
+        .bg-card {
+            background-color: hsl(var(--card));
+        }
+        .text-card-foreground {
+            color: hsl(var(--card-foreground));
+        }
+        .bg-secondary {
+            background-color: hsl(var(--secondary));
+        }
+        .text-primary {
+            color: hsl(var(--primary));
+        }
+        .text-muted-foreground {
+            color: hsl(var(--muted-foreground));
+        }
+        .text-green-500 {
+            color: #10b981;
+        }
+        .text-red-500 {
+            color: #ef4444;
+        }
+        .border {
+            border-width: 1px;
+            border-style: solid;
+        }
+        .border-border {
+            border-color: hsl(var(--border));
+        }
+        .flex {
+            display: flex;
+        }
+        .flex-col {
+            flex-direction: column;
+        }
+        .flex-1 {
+            flex: 1 1 0%;
+        }
+        .items-center {
+            align-items: center;
+        }
+        .items-start {
+            align-items: flex-start;
+        }
+        .justify-between {
+            justify-content: space-between;
+        }
+        .justify-center {
+            justify-content: center;
+        }
+        .gap-1 {
+            gap: 0.25rem;
+        }
+        .gap-2 {
+            gap: 0.5rem;
+        }
+        .gap-4 {
+            gap: 1rem;
+        }
+        .gap-6 {
+            gap: 1.5rem;
+        }
+        .space-y-1 > * + * {
+            margin-top: 0.25rem;
+        }
+        .space-y-2 > * + * {
+            margin-top: 0.5rem;
+        }
+        .space-y-3 > * + * {
+            margin-top: 0.75rem;
+        }
+        .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+        .space-y-8 > * + * {
+            margin-top: 2rem;
+        }
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .grid {
+            display: grid;
+        }
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        .p-2 {
+            padding: 0.5rem;
+        }
+        .p-2\.5 {
+            padding: 0.625rem;
+        }
+        .p-4 {
+            padding: 1rem;
+        }
+        .p-6 {
+            padding: 1.5rem;
+        }
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .rounded-full {
+            border-radius: 9999px;
+        }
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+        .border {
+            border-width: 1px;
+        }
+        .border-b {
+            border-bottom-width: 1px;
+        }
+        .font-bold {
+            font-weight: 700;
+        }
+        .font-medium {
+            font-weight: 500;
+        }
+        .font-semibold {
+            font-weight: 600;
+        }
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem;
+        }
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+        }
+        .tracking-tight {
+            letter-spacing: -0.025em;
+        }
+        .shadow-subtle {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        .transform {
+            transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        }
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+        .transition-colors {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        .sidebar-transition {
+            transition: all 300ms ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .animate-zoom-in {
+            animation: zoomIn 0.4s ease-out forwards;
+        }
+        .hover\:shadow-hover:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .hover\:bg-secondary:hover {
+            background-color: hsl(var(--secondary));
+        }
+        .hover\:bg-secondary\/80:hover {
+            background-color: hsl(var(--secondary)/0.8);
+        }
+        .h-4 {
+            height: 1rem;
+        }
+        .h-5 {
+            height: 1.25rem;
+        }
+        .h-6 {
+            height: 1.5rem;
+        }
+        .h-8 {
+            height: 2rem;
+        }
+        .h-16 {
+            height: 4rem;
+        }
+        .w-4 {
+            width: 1rem;
+        }
+        .w-5 {
+            width: 1.25rem;
+        }
+        .w-6 {
+            width: 1.5rem;
+        }
+        .w-8 {
+            width: 2rem;
+        }
+        .w-full {
+            width: 100%;
+        }
+        .h-\[300px\] {
+            height: 300px;
+        }
+        .bg-green-500 {
+            background-color: #10b981;
+        }
+        .bg-red-500 {
+            background-color: #ef4444;
+        }
+        .bg-red-100 {
+            background-color: #fee2e2;
+        }
+        .bg-primary {
+            background-color: hsl(var(--primary));
+        }
+        .text-red-700 {
+            color: #b91c1c;
+        }
+        .text-red-400 {
+            color: #f87171;
+        }
+        .text-primary-foreground {
+            color: hsl(var(--primary-foreground));
+        }
+        .text-sidebar-foreground {
+            color: hsl(var(--sidebar-foreground));
+        }
+        .divide-y > * + * {
+            border-top-width: 1px;
+            border-top-style: solid;
+        }
+        .divide-border > * + * {
+            border-color: hsl(var(--border));
+        }
+        .ml-auto {
+            margin-left: auto;
+        }
+        .ml-3 {
+            margin-left: 0.75rem;
+        }
+        .mr-2 {
+            margin-right: 0.5rem;
+        }
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        .fixed {
+            position: fixed;
+        }
+        .absolute {
+            position: absolute;
+        }
+        .relative {
+            position: relative;
+        }
+        .sticky {
+            position: sticky;
+        }
+        .top-0 {
+            top: 0;
+        }
+        .top-1 {
+            top: 0.25rem;
+        }
+        .top-4 {
+            top: 1rem;
+        }
+        .right-1 {
+            right: 0.25rem;
+        }
+        .-right-10 {
+            right: -2.5rem;
+        }
+        .inset-y-0 {
+            top: 0;
+            bottom: 0;
+        }
+        .left-0 {
+            left: 0;
+        }
+        .z-10 {
+            z-index: 10;
+        }
+        .z-20 {
+            z-index: 20;
+        }
+        .whitespace-nowrap {
+            white-space: nowrap;
+        }
+        /* Sidebar specific styles */
+        .bg-sidebar {
+            background-color: hsl(var(--sidebar-background));
+        }
+        .hidden {
+            display: none;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Responsive styles */
+        @media (min-width: 640px) {
+            .sm\:px-6 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            .sm\:p-6 {
+                padding: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .md\:block {
+                display: block;
+            }
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .md\:p-6 {
+                padding: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .lg\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .lg\:col-span-2 {
+                grid-column: span 2 / span 2;
+            }
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0 !important;
+            }
+            .sidebar {
+                width: 85%;
+                max-width: 280px;
+                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
+                transform: translateX(-100%);
+                z-index: 30;
+            }
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            .sidebar-toggle {
+                display: none;
+            }
+            .text-3xl {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            .p-6 {
+                padding: 1rem;
+            }
+            .gap-6 {
+                gap: 0.75rem;
+            }
+            .mt-4 {
+                margin-top: 0.5rem;
+            }
+            .space-y-8 > * + * {
+                margin-top: 1.25rem;
+            }
+            .h-\[300px\] {
+                height: 250px;
+            }
+            .user-menu-btn {
+                padding: 0.5rem;
+            }
+            .user-menu-btn .flex {
+                display: none;
+            }
+        }
+        /* Improved navbar styling */
+        .navbar {
+            background-color: hsl(var(--card));
+            border-bottom: 1px solid hsl(var(--border));
+            padding: 1rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        @media (min-width: 768px) {
+            .navbar {
+                padding: 1.25rem;
+            }
+        }
+        .navbar-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .navbar-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: hsl(var(--card-foreground));
+            letter-spacing: -0.025em;
+        }
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        @media (min-width: 768px) {
+            .navbar-actions {
+                gap: 1rem;
+            }
+        }
+        /* Enhanced sidebar styling */
+        .sidebar {
+            background-color: hsl(var(--sidebar-background));
+            border-right: 1px solid hsl(var(--sidebar-border));
+            transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+            width: 280px;
+            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 30;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            will-change: transform;
+        }
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid hsl(var(--sidebar-border));
+        }
+        .sidebar-brand {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: hsl(var(--sidebar-foreground));
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease;
+        }
+        .sidebar-brand:hover {
+            background-color: hsl(var(--sidebar-accent));
+        }
+        .sidebar-brand:active {
+            transform: scale(0.98);
+        }
+        @media (max-width: 768px) {
+            .sidebar-brand {
+                font-size: 1.1rem;
+            }
+        }
+        .sidebar-nav {
+            padding: 1rem;
+        }
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: hsl(var(--sidebar-foreground));
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            gap: 0.75rem;
+            margin-bottom: 0.25rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .sidebar-link:hover {
+            background-color: hsl(var(--sidebar-accent));
+        }
+        .sidebar-link.active {
+            background-color: hsl(var(--sidebar-primary));
+            color: hsl(var(--sidebar-primary-foreground));
+        }
+        .sidebar-link i {
+            font-size: 1.25rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Mobile touch feedback */
+        @media (max-width: 768px) {
+            .sidebar-link:active {
+                background-color: hsl(var(--sidebar-primary));
+                color: hsl(var(--sidebar-primary-foreground));
+                transform: scale(0.98);
+            }
+            .sidebar-link:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                background-color: hsl(var(--sidebar-primary)/0.1);
+                border-radius: 50%;
+                transform: scale(0) translate(-50%, -50%);
+                opacity: 0;
+            }
+            .sidebar-link:active:after {
+                animation: ripple 0.4s ease-out;
+            }
+        }
+        @keyframes ripple {
+            0% {
+                transform: scale(0) translate(-50%, -50%);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(2.5) translate(-20%, -20%);
+                opacity: 0;
+            }
+        }
+        /* Improved sidebar toggle styling */
+        .sidebar.collapsed {
+            width: 80px;
+            transform: translateX(0);
+        }
+        .sidebar.collapsed .sidebar-link span,
+        .sidebar.collapsed .sidebar-brand span {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+        }
+        .sidebar.collapsed .sidebar-link {
+            justify-content: center;
+            padding: 0.75rem;
+        }
+        .sidebar.collapsed .sidebar-link i {
+            margin-right: 0;
+            font-size: 1.5rem;
+            opacity: 1;
+            visibility: visible;
+        }
+        .sidebar.collapsed .sidebar-header {
+            padding: 1.5rem 0.75rem;
+            justify-content: center;
+        }
+        .sidebar.collapsed .sidebar-brand {
+            justify-content: center;
+            padding: 0;
+        }
+        .sidebar.collapsed .sidebar-brand i {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Button improvements */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            padding: 0.5rem 1rem;
+            gap: 0.5rem;
+        }
+        .btn-primary {
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            background-color: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            border: 1px solid hsl(var(--border));
+        }
+        .btn-secondary:hover {
+            background-color: hsl(var(--muted));
+            transform: translateY(-1px);
+        }
+        .btn-icon {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .btn-icon:hover {
+            background-color: hsl(var(--secondary));
+            transform: translateY(-1px);
+        }
+        /* User menu improvements */
+        .user-menu {
+            position: relative;
+        }
+        .user-menu-btn {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            gap: 0.75rem;
+            border-radius: 0.75rem;
+            transition: all 0.2s ease;
+            background-color: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .user-menu-btn:hover {
+            background-color: hsl(var(--secondary));
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .user-menu-btn span {
+            color: hsl(var(--foreground));
+        }
+        .dark .user-menu-btn span {
+            color: hsl(var(--foreground));
+        }
+        .user-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        .dropdown-menu {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            margin-top: 0.5rem;
+            width: 14rem;
+            background-color: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            z-index: 50;
+            opacity: 0;
+            transform: translateY(-10px);
+            visibility: hidden;
+            transition: all 0.2s ease;
+        }
+        .dropdown-menu.show {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: hsl(var(--card-foreground));
+            transition: all 0.2s ease;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .dropdown-item:hover {
+            background-color: hsl(var(--secondary));
+        }
+        .dropdown-item i {
+            font-size: 1.25rem;
+            opacity: 0.7;
+        }
+        /* Theme toggle improvements */
+        .theme-toggle {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            color: hsl(var(--card-foreground));
+            cursor: pointer;
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover {
+            background-color: hsl(var(--secondary));
+            transform: translateY(-1px);
+        }
+        .theme-toggle svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        /* Icon animations */
+        .icon-transition {
+            transition: all 0.3s ease;
+        }
+        .icon-rotate {
+            transform: rotate(360deg);
+        }
+        .icon-scale {
+            transform: scale(1.2);
+        }
+        .icon-fade {
+            opacity: 0;
+            position: absolute;
+        }
+        .icon-fade-in {
+            opacity: 1;
+            position: relative;
+        }
+        /* Improved View All button styling */
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            gap: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            transition: all 0.2s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        .view-all-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .view-all-btn i {
+            font-size: 1rem;
+        }
+        .sidebar-toggle {
+            display: none !important;
+        }
+        .main-content {
+            margin-left: 280px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        .main-content.expanded {
+            margin-left: 80px;
+        }
+        /* Make mobile menu button always visible */
+        .mobile-menu-btn {
+            display: flex !important;
+            background: none;
+            border: none;
+            color: hsl(var(--card-foreground));
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            position: relative;
+            z-index: 31;
+        }
+        /* Mobile menu button hover/active states */
+        .mobile-menu-btn:hover {
+            background-color: hsl(var(--secondary));
+        }
+        .mobile-menu-btn:active {
+            background-color: hsl(var(--secondary));
+            transform: scale(0.95);
+        }
+        /* Touch-friendly styles */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0 !important;
+            }
+            .sidebar {
+                width: 85%;
+                max-width: 280px;
+                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
+                transform: translateX(-100%);
+                z-index: 30;
+            }
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            .sidebar-link, .dropdown-item, .theme-toggle, .user-menu-btn, .btn, .view-all-btn {
+                padding: 0.75rem;
+                min-height: 44px;
+            }
+            .sidebar-link i, .dropdown-item i {
+                font-size: 1.5rem;
+            }
+        }
+        /* My Account */
+        .my-2 {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        /* Add style for the open state of mobile menu button */
+        .mobile-menu-btn.open {
+            background-color: hsl(var(--primary)/0.1);
+        }
+        /* Ensure the sidebar is above the overlay */
+        .sidebar {
+            z-index: 30;
+        }
+        /* Fix sidebar z-index issues */
+        .sidebar-toggle {
+            z-index: 31;
+        }
+        /* Improve transitions for menu button */
+        .bx {
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu-btn .bx-x {
+            transform: rotate(90deg);
+        }
+        /* Mobile sidebar overlay */
+        .mobile-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 29;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            pointer-events: none;
+        }
+        .mobile-sidebar-overlay.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-background">
+        <!-- Mobile Sidebar Overlay -->
+        <div id="mobileSidebarOverlay" class="mobile-sidebar-overlay"></div>
+        
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <i class='bx bxs-traffic text-2xl'></i>
+                    <span>Traffic Dashboard Guardian</span>
+                </div>
+            </div>
+            <div class="sidebar-nav">
+                <a href="{{ url_for('dashboard') }}" class="sidebar-link active">
+                    <i class='bx bxs-dashboard'></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="{{ url_for('management') }}" class="sidebar-link">
+                    <i class='bx bxs-car'></i>
+                    <span>Vehicle Management</span>
+                </a>
+                {% if user.role == 'admin' %}
+                <a href="{{ url_for('settings') }}" class="sidebar-link">
+                    <i class='bx bxs-cog'></i>
+                    <span>Settings</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Main Content Container -->
+        <div id="mainContent" class="main-content flex-1 flex flex-col overflow-hidden">
+            <!-- Navigation Bar -->
+            <nav class="navbar">
+                <div class="navbar-content">
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle menu">
+                        <i class='bx bx-menu'></i>
+                    </button>
+                    
+                    <div class="navbar-title">
+                        Dashboard
+                    </div>
+                    <div class="navbar-actions">
+                        <!-- Theme Toggle -->
+                        <button id="themeToggle" class="theme-toggle">
+                            <!-- Sun Icon (shown in dark mode) -->
+                            <div id="sunIconWrapper" class="icon-fade">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            </div>
+                            <!-- Moon Icon (shown in light mode) -->
+                            <div id="moonIconWrapper" class="icon-fade-in">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
+                            </div>
+                        </button>
+
+                        <!-- User Profile Dropdown -->
+                        <div class="user-menu">
+                            <button id="userMenuBtn" class="user-menu-btn">
+                                <div class="user-avatar">
+                                    <span>{{ user.username[:2] }}</span>
+                                </div>
+                                <div class="flex flex-col items-start">
+                                    <span class="font-medium">{{ user.username }}</span>
+                                    <span class="text-xs text-muted-foreground">{{ user.role|title }}</span>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div id="userMenu" class="dropdown-menu">
+                                
+                                
+                                <hr class="my-2 border-border">
+                                <a href="{{ url_for('logout') }}" class="dropdown-item text-red-500">
+                                    <i class='bx bxs-log-out'></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="container mx-auto p-4 sm:px-6 animate-fade-in">
+                <div class="space-y-8 mt-4">
+                    <div class="space-y-2">
+                        <h1 class="text-3xl font-bold tracking-tight">Dashboard</h1>
+                        <p class="text-muted-foreground">
+                            Overview of traffic violations and system performance.
+                        </p>
+                    </div>
+                    <!-- Stat Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Stat Card 1 -->
+                        <div class="rounded-xl border border-border bg-card p-4 sm:p-6 shadow-subtle transition-all duration-300 hover:shadow-hover animate-zoom-in">
+                            <div class="flex items-start justify-between">
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium text-muted-foreground">Total Violations</p>
+                                    <div class="flex items-baseline gap-1">
+                                        <h3 class="text-3xl font-bold tracking-tight">{{ stats.total_violations }}</h3>
+                                    </div>
+                                    <p class="text-xs text-muted-foreground">Total recorded violations</p>
+                                </div>
+                                <div class="rounded-full bg-secondary p-2.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary w-5 h-5">
+                                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                                        <path d="M12 9v4"></path>
+                                        <path d="M12 17h.01"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Stat Card 2 -->
+                        <div class="rounded-xl border border-border bg-card p-4 sm:p-6 shadow-subtle transition-all duration-300 hover:shadow-hover animate-zoom-in" style="animation-delay: 100ms;">
+                            <div class="flex items-start justify-between">
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium text-muted-foreground">Violations by Zone</p>
+                                    <div class="flex items-baseline gap-1">
+                                        <h3 class="text-3xl font-bold tracking-tight">{{ stats.violations_by_zone }}</h3>
+                                    </div>
+                                    <p class="text-xs text-muted-foreground">Active violation zones</p>
+                                </div>
+                                <div class="rounded-full bg-secondary p-2.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary w-5 h-5">
+                                        <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.5-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+                                        <circle cx="7" cy="17" r="2"></circle>
+                                        <path d="M9 17h6"></path>
+                                        <circle cx="17" cy="17" r="2"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Stat Card 3 -->
+                        <div class="rounded-xl border border-border bg-card p-4 sm:p-6 shadow-subtle transition-all duration-300 hover:shadow-hover animate-zoom-in" style="animation-delay: 200ms;">
+                            <div class="flex items-start justify-between">
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium text-muted-foreground">This Month</p>
+                                    <div class="flex items-baseline gap-1">
+                                        <h3 class="text-3xl font-bold tracking-tight">{{ stats.this_month }}</h3>
+                                    </div>
+                                    <p class="text-xs text-muted-foreground">Violations this month</p>
+                                </div>
+                                <div class="rounded-full bg-secondary p-2.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary w-5 h-5">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Stat Card 4 -->
+                        <div class="rounded-xl border border-border bg-card p-4 sm:p-6 shadow-subtle transition-all duration-300 hover:shadow-hover animate-zoom-in" style="animation-delay: 300ms;">
+                            <div class="flex items-start justify-between">
+                                <div class="space-y-2">
+                                    <p class="text-sm font-medium text-muted-foreground">Speed Violations</p>
+                                    <div class="flex items-baseline gap-1">
+                                        <h3 class="text-3xl font-bold tracking-tight">{{ stats.speed_violations }}</h3>
+                                    </div>
+                                    <p class="text-xs text-muted-foreground">Total speeding violations</p>
+                                </div>
+                                <div class="rounded-full bg-secondary p-2.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary w-5 h-5">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Charts and Lists -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Monthly Violations Chart -->
+                        <div class="lg:col-span-2 rounded-xl border border-border bg-card shadow-subtle overflow-hidden">
+                            <div class="px-6 py-4 border-b border-border">
+                                <h2 class="text-lg font-medium">This Month Violations</h2>
+                            </div>
+                            <div class="p-4">
+                                <div id="monthlyViolationsChart" class="h-[300px] w-full"></div>
+                            </div>
+                        </div>
+                        <!-- Recent Violations -->
+                        <div class="rounded-xl border border-border bg-card shadow-subtle overflow-hidden">
+                            <div class="flex items-center justify-between px-6 py-4 border-b border-border">
+                                <h2 class="text-lg font-medium">Recent Violations</h2>
+                                <a href="{{ url_for('violations') }}" class="text-sm text-primary hover:underline">
+                                    View All
+                                </a>
+                            </div>
+                            <div class="divide-y divide-border" id="recentViolationsList">
+                                {% for violation in stats.recent_violations %}
+                                <div class="p-4 hover:bg-secondary/80 transition-colors">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <div class="flex items-center gap-2">
+                                                <span class="font-medium">{{ violation['License Plate'] }}</span>
+                                                <span class="text-xs text-red-400">{{ violation['Violation Type'] }}</span>
+                                            </div>
+                                            <div class="text-sm text-muted-foreground">{{ violation.formatted_date }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- Load ApexCharts library -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- Load Boxicons -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // User Menu Dropdown
+            const userMenuBtn = document.getElementById('userMenuBtn');
+            const userMenu = document.getElementById('userMenu');
+
+            userMenuBtn.addEventListener('click', () => {
+                userMenu.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!userMenuBtn.contains(e.target) && !userMenu.contains(e.target)) {
+                    userMenu.classList.remove('show');
+                }
+            });
+
+            // Theme Toggle with enhanced icon animation
+            const themeToggle = document.getElementById('themeToggle');
+            const sunIconWrapper = document.getElementById('sunIconWrapper');
+            const moonIconWrapper = document.getElementById('moonIconWrapper');
+            const html = document.documentElement;
+
+            // Check for saved theme preference or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.classList.toggle('dark', savedTheme === 'dark');
+            updateThemeIcons(savedTheme === 'dark');
+
+            themeToggle.addEventListener('click', () => {
+                const isDark = html.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                
+                // Animate the icon transition
+                if (isDark) {
+                    // Animate from moon to sun
+                    moonIconWrapper.classList.add('icon-scale');
+                    setTimeout(() => {
+                        moonIconWrapper.classList.remove('icon-scale');
+                        moonIconWrapper.classList.remove('icon-fade-in');
+                        moonIconWrapper.classList.add('icon-fade');
+                        
+                        sunIconWrapper.classList.add('icon-fade-in');
+                        sunIconWrapper.classList.remove('icon-fade');
+                        sunIconWrapper.classList.add('icon-scale');
+                        
+                        setTimeout(() => {
+                            sunIconWrapper.classList.remove('icon-scale');
+                        }, 300);
+                    }, 150);
+                } else {
+                    // Animate from sun to moon
+                    sunIconWrapper.classList.add('icon-scale');
+                    setTimeout(() => {
+                        sunIconWrapper.classList.remove('icon-scale');
+                        sunIconWrapper.classList.remove('icon-fade-in');
+                        sunIconWrapper.classList.add('icon-fade');
+                        
+                        moonIconWrapper.classList.add('icon-fade-in');
+                        moonIconWrapper.classList.remove('icon-fade');
+                        moonIconWrapper.classList.add('icon-scale');
+                        
+                        setTimeout(() => {
+                            moonIconWrapper.classList.remove('icon-scale');
+                        }, 300);
+                    }, 150);
+                }
+            });
+
+            function updateThemeIcons(isDark) {
+                if (isDark) {
+                    moonIconWrapper.classList.remove('icon-fade-in');
+                    moonIconWrapper.classList.add('icon-fade');
+                    sunIconWrapper.classList.add('icon-fade-in');
+                    sunIconWrapper.classList.remove('icon-fade');
+                } else {
+                    sunIconWrapper.classList.remove('icon-fade-in');
+                    sunIconWrapper.classList.add('icon-fade');
+                    moonIconWrapper.classList.add('icon-fade-in');
+                    moonIconWrapper.classList.remove('icon-fade');
+                }
+            }
+
+            // Mobile Menu
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileSidebarOverlay = document.getElementById('mobileSidebarOverlay');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const isMobile = window.innerWidth < 768;
+                
+                if (isMobile) {
+                    // Mobile behavior - show/hide sidebar with overlay
+                    sidebar.classList.toggle('show');
+                    mobileSidebarOverlay.classList.toggle('show');
+                    document.body.style.overflow = sidebar.classList.contains('show') ? 'hidden' : '';
+                } else {
+                    // Desktop behavior - collapse/expand sidebar
+                    const isCollapsed = sidebar.classList.contains('collapsed');
+                    sidebar.classList.toggle('collapsed');
+                    mainContent.classList.toggle('expanded');
+                    
+                    if (!isCollapsed) {
+                        // Collapsing sidebar
+                        mainContent.style.marginLeft = '80px';
+                        // Ensure icons remain visible after transition
+                        setTimeout(() => {
+                            const icons = sidebar.querySelectorAll('i');
+                            icons.forEach(icon => {
+                                icon.style.opacity = '1';
+                                icon.style.visibility = 'visible';
+                            });
+                        }, 50);
+                    } else {
+                        // Expanding sidebar
+                        mainContent.style.marginLeft = '280px';
+                    }
+                }
+                
+                // Toggle between menu and close icons
+                this.classList.toggle('open');
+                const menuIcon = this.querySelector('i');
+                if ((isMobile && sidebar.classList.contains('show')) || 
+                    (!isMobile && !sidebar.classList.contains('collapsed'))) {
+                    menuIcon.classList.remove('bx-menu');
+                    menuIcon.classList.add('bx-x');
+                } else {
+                    menuIcon.classList.remove('bx-x');
+                    menuIcon.classList.add('bx-menu');
+                }
+            });
+
+            // Close mobile sidebar when clicking overlay
+            mobileSidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('show');
+                mobileSidebarOverlay.classList.remove('show');
+                mobileMenuBtn.classList.remove('open');
+                const menuIcon = mobileMenuBtn.querySelector('i');
+                menuIcon.classList.remove('bx-x');
+                menuIcon.classList.add('bx-menu');
+                document.body.style.overflow = '';
+            });
+
+            // Handle window resize
+            function handleResize() {
+                const isMobile = window.innerWidth < 768;
+                const menuIcon = mobileMenuBtn.querySelector('i');
+                
+                if (isMobile) {
+                    // Reset desktop state
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.remove('expanded');
+                    mainContent.style.marginLeft = '0';
+                    
+                    // Ensure all spans are visible again when switching to mobile
+                    const sidebarSpans = sidebar.querySelectorAll('.sidebar-link span, .sidebar-brand span');
+                    sidebarSpans.forEach(span => {
+                        span.style.opacity = '';
+                        span.style.visibility = '';
+                        span.style.position = '';
+                    });
+                    
+                    // Set proper icon
+                    if (sidebar.classList.contains('show')) {
+                        menuIcon.classList.remove('bx-menu');
+                        menuIcon.classList.add('bx-x');
+                        mobileMenuBtn.classList.add('open');
+                    } else {
+                        menuIcon.classList.remove('bx-x');
+                        menuIcon.classList.add('bx-menu');
+                        mobileMenuBtn.classList.remove('open');
+                    }
+                    
+                    document.body.style.overflow = sidebar.classList.contains('show') ? 'hidden' : '';
+                } else {
+                    // Reset mobile state
+                    sidebar.classList.remove('show');
+                    mobileSidebarOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                    
+                    // Set desktop margin based on collapsed state
+                    if (sidebar.classList.contains('collapsed')) {
+                        mainContent.style.marginLeft = '80px';
+                        mainContent.classList.add('expanded');
+                        menuIcon.classList.remove('bx-x');
+                        menuIcon.classList.add('bx-menu');
+                        mobileMenuBtn.classList.remove('open');
+                        
+                        // Ensure icons are visible in collapsed state
+                        const icons = sidebar.querySelectorAll('i');
+                        icons.forEach(icon => {
+                            icon.style.opacity = '1';
+                            icon.style.visibility = 'visible';
+                        });
+                    } else {
+                        mainContent.style.marginLeft = '280px';
+                        mainContent.classList.remove('expanded');
+                        menuIcon.classList.remove('bx-menu');
+                        menuIcon.classList.add('bx-x');
+                        mobileMenuBtn.classList.add('open');
+                    }
+                }
+            }
+
+            // Add event listener for escape key to close sidebar on mobile
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && window.innerWidth < 768 && sidebar.classList.contains('show')) {
+                    sidebar.classList.remove('show');
+                    mobileSidebarOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            window.addEventListener('resize', handleResize);
+            handleResize(); // Initialize on load
+
+            // Check URL parameters for sidebar state
+            function checkSidebarState() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const sidebarState = urlParams.get('sidebar');
+                
+                // If the sidebar state is specified in the URL, apply it
+                if (sidebarState === 'collapsed') {
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('expanded');
+                    mainContent.style.marginLeft = '80px';
+                    
+                    const menuIcon = mobileMenuBtn.querySelector('i');
+                    menuIcon.classList.remove('bx-x');
+                    menuIcon.classList.add('bx-menu');
+                    mobileMenuBtn.classList.remove('open');
+                }
+            }
+
+            // Run sidebar state check after initialization
+            checkSidebarState();
+
+            // Initialize chart
+            const isMobile = window.innerWidth < 768;
+            const options = {
+                series: [{
+                    name: 'Violations',
+                    data: {{ stats.monthly_violations|tojson|safe }}
+                }],
+                chart: {
+                    height: isMobile ? 250 : 300,
+                    type: 'bar',
+                    toolbar: {
+                        show: false
+                    },
+                    fontFamily: 'Inter, sans-serif',
+                    redrawOnWindowResize: true
+                },
+                plotOptions: {
+                    bar: {
+                        borderRadius: 6,
+                        columnWidth: isMobile ? '80%' : '60%'
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                colors: ['#3b82f6'],
+                xaxis: {
+                    categories: Array.from({length: 31}, (_, i) => (i + 1).toString()),
+                    labels: {
+                        style: {
+                            colors: '#888',
+                            fontSize: isMobile ? '10px' : '12px',
+                            fontFamily: 'Inter, sans-serif'
+                        },
+                        rotate: isMobile ? -45 : 0,
+                        hideOverlappingLabels: true,
+                        trim: true,
+                        maxHeight: 120
+                    },
+                    tickAmount: isMobile ? 15 : 31,
+                    axisBorder: {
+                        show: false
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: '#888',
+                            fontSize: isMobile ? '10px' : '12px',
+                            fontFamily: 'Inter, sans-serif'
+                        },
+                        formatter: function(val) {
+                            return val.toFixed(0);
+                        }
+                    }
+                },
+                tooltip: {
+                    y: {
+                        formatter: function (val) {
+                            return val + " violations";
+                        }
+                    },
+                    style: {
+                        fontSize: '12px',
+                        fontFamily: 'Inter, sans-serif'
+                    }
+                },
+                grid: {
+                    padding: {
+                        left: isMobile ? 5 : 10,
+                        right: isMobile ? 5 : 10
+                    }
+                },
+                responsive: [{
+                    breakpoint: 768,
+                    options: {
+                        chart: {
+                            height: 250
+                        },
+                        plotOptions: {
+                            bar: {
+                                columnWidth: '80%'
+                            }
+                        }
+                    }
+                }]
+            };
+
+            const chart = new ApexCharts(document.querySelector("#monthlyViolationsChart"), options);
+            chart.render();
+
+            // Update chart on theme change
+            const updateChartTheme = () => {
+                const isDark = html.classList.contains('dark');
+                chart.updateOptions({
+                    chart: {
+                        foreColor: isDark ? '#e5e7eb' : '#374151'
+                    },
+                    tooltip: {
+                        theme: isDark ? 'dark' : 'light'
+                    }
+                });
+            };
+
+            // Initial chart theme
+            updateChartTheme();
+
+            // Update chart when theme changes
+            themeToggle.addEventListener('click', updateChartTheme);
+            
+            // Handle chart resize on orientation change
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    chart.updateOptions({
+                        chart: {
+                            height: window.innerWidth < 768 ? 250 : 300
+                        },
+                        plotOptions: {
+                            bar: {
+                                columnWidth: window.innerWidth < 768 ? '80%' : '60%'
+                            }
+                        },
+                        xaxis: {
+                            labels: {
+                                style: {
+                                    fontSize: window.innerWidth < 768 ? '10px' : '12px'
+                                },
+                                rotate: window.innerWidth < 768 ? -45 : 0
+                            },
+                            tickAmount: window.innerWidth < 768 ? 15 : 31
+                        }
+                    });
+                }, 300);
+            });
+
+            // At the end of the existing JavaScript, before the final closing script tag
+            // Add swipe gesture support for mobile sidebar
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const swipeThreshold = 100; // Minimum swipe distance
+            const edgeThreshold = 30; // Edge area width to start swipe from
+
+            // Check if touch is near the left edge (for opening sidebar)
+            function isTouchNearLeftEdge(x) {
+                return x < edgeThreshold;
+            }
+
+            // Check if sidebar is open
+            function isSidebarOpen() {
+                return sidebar.classList.contains('show');
+            }
+
+            // Handle touch start
+            document.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                // Allow swipe from edge only if sidebar is closed
+                if (!isSidebarOpen() && !isTouchNearLeftEdge(touchStartX)) {
+                    return;
+                }
+            }, false);
+
+            // Handle touch end
+            document.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+
+            // Process the swipe gesture
+            function handleSwipe() {
+                const swipeDistance = touchEndX - touchStartX;
+                const isMobile = window.innerWidth < 768;
+                
+                // Only handle swipes on mobile
+                if (!isMobile) return;
+                
+                // Right swipe (open sidebar)
+                if (swipeDistance > swipeThreshold && !isSidebarOpen() && isTouchNearLeftEdge(touchStartX)) {
+                    sidebar.classList.add('show');
+                    mobileSidebarOverlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+                
+                // Left swipe (close sidebar)
+                else if (swipeDistance < -swipeThreshold && isSidebarOpen()) {
+                    sidebar.classList.remove('show');
+                    mobileSidebarOverlay.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            // Add click functionality to logo/brand
+            const sidebarBrand = document.querySelector('.sidebar-brand');
+            sidebarBrand.addEventListener('click', function() {
+                window.location.href = "{{ url_for('dashboard') }}";
+            });
+        });
+    </script>
+</body>
+</html>
+

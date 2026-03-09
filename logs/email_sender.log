@@ -1,0 +1,123 @@
+2025-03-22 21:35:13,140 - INFO - Successfully validated credentials for shuklamayank015@gmail.com
+2025-03-22 21:35:13,140 - INFO - Attempting to send 8 violation emails
+2025-03-22 21:35:13,140 - INFO - Connecting to SMTP server smtp.gmail.com:587
+2025-03-22 21:35:13,983 - INFO - Logging in as shuklamayank015@gmail.com
+2025-03-22 21:35:15,000 - INFO - Preparing email for rehaanalis08@gmail.com with 1 violations
+2025-03-22 21:35:15,001 - INFO - Sending email to rehaanalis08@gmail.com
+2025-03-22 21:35:18,049 - INFO - Successfully sent email to rehaanalis08@gmail.com
+2025-03-22 21:35:18,049 - INFO - Preparing email for rehaan.workspace@gmail.com with 1 violations
+2025-03-22 21:35:18,068 - INFO - Sending email to rehaan.workspace@gmail.com
+2025-03-22 21:35:21,017 - INFO - Successfully sent email to rehaan.workspace@gmail.com
+2025-03-22 21:35:21,017 - INFO - Preparing email for rehaanalis08@rediffmail.com with 1 violations
+2025-03-22 21:35:21,018 - INFO - Sending email to rehaanalis08@rediffmail.com
+2025-03-22 21:35:23,651 - INFO - Successfully sent email to rehaanalis08@rediffmail.com
+2025-03-22 21:35:23,651 - INFO - Preparing email for rehaanalis08@protonmail.com with 1 violations
+2025-03-22 21:35:23,651 - INFO - Sending email to rehaanalis08@protonmail.com
+2025-03-22 21:35:26,546 - INFO - Successfully sent email to rehaanalis08@protonmail.com
+2025-03-22 21:35:26,547 - INFO - Preparing email for info@mypolicyexpress.com with 1 violations
+2025-03-22 21:35:26,547 - INFO - Sending email to info@mypolicyexpress.com
+2025-03-22 21:35:29,222 - INFO - Successfully sent email to info@mypolicyexpress.com
+2025-03-22 21:35:29,223 - INFO - Preparing email for rehaan@mypolicyexpress.com with 1 violations
+2025-03-22 21:35:29,224 - INFO - Sending email to rehaan@mypolicyexpress.com
+2025-03-22 21:35:32,297 - INFO - Successfully sent email to rehaan@mypolicyexpress.com
+2025-03-22 21:35:32,298 - INFO - Preparing email for mis@mypolicyexpress.com  with 1 violations
+2025-03-22 21:35:32,298 - INFO - Sending email to mis@mypolicyexpress.com 
+2025-03-22 21:35:34,908 - INFO - Successfully sent email to mis@mypolicyexpress.com 
+2025-03-22 21:35:34,908 - INFO - Preparing email for shuklamayank082005@gmail.com with 1 violations
+2025-03-22 21:35:34,909 - INFO - Sending email to shuklamayank082005@gmail.com
+2025-03-22 21:35:37,624 - INFO - Successfully sent email to shuklamayank082005@gmail.com
+2025-03-22 21:35:37,854 - INFO - SMTP connection closed
+2025-03-22 21:35:37,855 - INFO - Email sending complete. Success: 8, Failed: 0
+2025-03-26 21:44:01,428 - INFO - Successfully validated credentials for shuklamayank015@gmail.com
+2025-03-26 21:44:01,428 - INFO - Attempting to send 8 violation emails
+2025-03-26 21:44:01,428 - INFO - Connecting to SMTP server smtp.gmail.com:587
+2025-03-26 21:44:02,569 - INFO - Logging in as shuklamayank015@gmail.com
+2025-03-26 21:44:03,341 - INFO - Preparing email for rehaanalis08@gmail.com with 1 violations
+2025-03-26 21:44:03,342 - INFO - Sending email to rehaanalis08@gmail.com
+2025-03-26 21:44:07,220 - INFO - Successfully sent email to rehaanalis08@gmail.com
+2025-03-26 21:44:07,220 - INFO - Preparing email for rehaan.workspace@gmail.com with 1 violations
+2025-03-26 21:44:07,221 - INFO - Sending email to rehaan.workspace@gmail.com
+2025-03-26 21:44:10,002 - INFO - Successfully sent email to rehaan.workspace@gmail.com
+2025-03-26 21:44:10,003 - INFO - Preparing email for rehaanalis08@rediffmail.com with 1 violations
+2025-03-26 21:44:10,003 - INFO - Sending email to rehaanalis08@rediffmail.com
+2025-03-26 21:44:12,865 - INFO - Successfully sent email to rehaanalis08@rediffmail.com
+2025-03-26 21:44:12,865 - INFO - Preparing email for rehaanalis08@protonmail.com with 1 violations
+2025-03-26 21:44:12,865 - INFO - Sending email to rehaanalis08@protonmail.com
+2025-03-26 21:44:15,611 - INFO - Successfully sent email to rehaanalis08@protonmail.com
+2025-03-26 21:44:15,611 - INFO - Preparing email for info@mypolicyexpress.com with 1 violations
+2025-03-26 21:44:15,611 - INFO - Sending email to info@mypolicyexpress.com
+2025-03-26 21:44:18,357 - INFO - Successfully sent email to info@mypolicyexpress.com
+2025-03-26 21:44:18,357 - INFO - Preparing email for rehaan@mypolicyexpress.com with 1 violations
+2025-03-26 21:44:18,357 - INFO - Sending email to rehaan@mypolicyexpress.com
+2025-03-26 21:44:21,599 - INFO - Successfully sent email to rehaan@mypolicyexpress.com
+2025-03-26 21:44:21,600 - INFO - Preparing email for mis@mypolicyexpress.com  with 1 violations
+2025-03-26 21:44:21,600 - INFO - Sending email to mis@mypolicyexpress.com 
+2025-03-26 21:44:24,354 - INFO - Successfully sent email to mis@mypolicyexpress.com 
+2025-03-26 21:44:24,355 - INFO - Preparing email for shuklamayank082005@gmail.com with 1 violations
+2025-03-26 21:44:24,355 - INFO - Sending email to shuklamayank082005@gmail.com
+2025-03-26 21:44:27,474 - INFO - Successfully sent email to shuklamayank082005@gmail.com
+2025-03-26 21:44:27,710 - INFO - SMTP connection closed
+2025-03-26 21:44:27,710 - INFO - Email sending complete. Success: 8, Failed: 0
+2025-03-26 23:36:32,149 - INFO - Successfully validated credentials for shuklamayank015@gmail.com
+2025-03-26 23:36:32,150 - INFO - Attempting to send 8 violation emails
+2025-03-26 23:36:32,150 - INFO - Connecting to SMTP server smtp.gmail.com:587
+2025-03-26 23:36:33,073 - INFO - Logging in as shuklamayank015@gmail.com
+2025-03-26 23:36:33,866 - INFO - Preparing email for rehaanalis08@gmail.com with 1 violations
+2025-03-26 23:36:33,867 - INFO - Sending email to rehaanalis08@gmail.com
+2025-03-26 23:36:36,814 - INFO - Successfully sent email to rehaanalis08@gmail.com
+2025-03-26 23:36:36,814 - INFO - Preparing email for rehaan.workspace@gmail.com with 1 violations
+2025-03-26 23:36:36,815 - INFO - Sending email to rehaan.workspace@gmail.com
+2025-03-26 23:36:39,792 - INFO - Successfully sent email to rehaan.workspace@gmail.com
+2025-03-26 23:36:39,792 - INFO - Preparing email for rehaanalis08@rediffmail.com with 1 violations
+2025-03-26 23:36:39,793 - INFO - Sending email to rehaanalis08@rediffmail.com
+2025-03-26 23:36:43,258 - INFO - Successfully sent email to rehaanalis08@rediffmail.com
+2025-03-26 23:36:43,259 - INFO - Preparing email for rehaanalis08@protonmail.com with 1 violations
+2025-03-26 23:36:43,259 - INFO - Sending email to rehaanalis08@protonmail.com
+2025-03-27 22:29:39,319 - INFO - Successfully validated credentials for shuklamayank015@gmail.com
+2025-03-27 22:29:39,320 - INFO - Attempting to send 6 violation emails
+2025-03-27 22:29:39,320 - INFO - Connecting to SMTP server smtp.gmail.com:587
+2025-03-27 22:29:40,416 - INFO - Logging in as shuklamayank015@gmail.com
+2025-03-27 22:29:41,184 - INFO - Preparing email for rehaanalis08@rediffmail.com with 1 violations
+2025-03-27 22:29:41,186 - INFO - Sending email to rehaanalis08@rediffmail.com
+2025-03-27 22:29:44,222 - INFO - Successfully sent email to rehaanalis08@rediffmail.com
+2025-03-27 22:29:44,222 - INFO - Preparing email for rehaanalis08@protonmail.com with 1 violations
+2025-03-27 22:29:44,222 - INFO - Sending email to rehaanalis08@protonmail.com
+2025-03-27 22:29:47,306 - INFO - Successfully sent email to rehaanalis08@protonmail.com
+2025-03-27 22:29:47,306 - INFO - Preparing email for info@mypolicyexpress.com with 1 violations
+2025-03-27 22:29:47,307 - INFO - Sending email to info@mypolicyexpress.com
+2025-03-27 22:29:50,147 - INFO - Successfully sent email to info@mypolicyexpress.com
+2025-03-27 22:29:50,148 - INFO - Preparing email for rehaan@mypolicyexpress.com with 1 violations
+2025-03-27 22:29:50,148 - INFO - Sending email to rehaan@mypolicyexpress.com
+2025-03-27 22:29:52,985 - INFO - Successfully sent email to rehaan@mypolicyexpress.com
+2025-03-27 22:29:52,985 - INFO - Preparing email for mis@mypolicyexpress.com  with 1 violations
+2025-03-27 22:29:52,986 - INFO - Sending email to mis@mypolicyexpress.com 
+2025-03-27 22:29:55,850 - INFO - Successfully sent email to mis@mypolicyexpress.com 
+2025-03-27 22:29:55,851 - INFO - Preparing email for shuklamayank082005@gmail.com with 1 violations
+2025-03-27 22:29:55,852 - INFO - Sending email to shuklamayank082005@gmail.com
+2025-03-27 22:29:58,690 - INFO - Successfully sent email to shuklamayank082005@gmail.com
+2025-03-27 22:29:58,932 - INFO - SMTP connection closed
+2025-03-27 22:29:58,933 - INFO - Email sending complete. Success: 6, Failed: 0
+2025-03-27 23:01:33,888 - INFO - Successfully validated credentials for shuklamayank015@gmail.com
+2025-03-27 23:01:33,889 - INFO - Attempting to send 6 violation emails
+2025-03-27 23:01:33,889 - INFO - Connecting to SMTP server smtp.gmail.com:587
+2025-03-27 23:01:34,807 - INFO - Logging in as shuklamayank015@gmail.com
+2025-03-27 23:01:35,573 - INFO - Preparing email for rehaanalis08@rediffmail.com with 1 violations
+2025-03-27 23:01:35,574 - INFO - Sending email to rehaanalis08@rediffmail.com
+2025-03-27 23:01:38,530 - INFO - Successfully sent email to rehaanalis08@rediffmail.com
+2025-03-27 23:01:38,531 - INFO - Preparing email for rehaanalis08@protonmail.com with 1 violations
+2025-03-27 23:01:38,531 - INFO - Sending email to rehaanalis08@protonmail.com
+2025-03-27 23:01:41,412 - INFO - Successfully sent email to rehaanalis08@protonmail.com
+2025-03-27 23:01:41,412 - INFO - Preparing email for info@mypolicyexpress.com with 1 violations
+2025-03-27 23:01:41,412 - INFO - Sending email to info@mypolicyexpress.com
+2025-03-27 23:01:44,450 - INFO - Successfully sent email to info@mypolicyexpress.com
+2025-03-27 23:01:44,450 - INFO - Preparing email for rehaan@mypolicyexpress.com with 1 violations
+2025-03-27 23:01:44,451 - INFO - Sending email to rehaan@mypolicyexpress.com
+2025-03-27 23:01:47,281 - INFO - Successfully sent email to rehaan@mypolicyexpress.com
+2025-03-27 23:01:47,281 - INFO - Preparing email for mis@mypolicyexpress.com  with 1 violations
+2025-03-27 23:01:47,282 - INFO - Sending email to mis@mypolicyexpress.com 
+2025-03-27 23:01:49,997 - INFO - Successfully sent email to mis@mypolicyexpress.com 
+2025-03-27 23:01:49,998 - INFO - Preparing email for shuklamayank082005@gmail.com with 1 violations
+2025-03-27 23:01:49,998 - INFO - Sending email to shuklamayank082005@gmail.com
+2025-03-27 23:01:52,751 - INFO - Successfully sent email to shuklamayank082005@gmail.com
+2025-03-27 23:01:52,987 - INFO - SMTP connection closed
+2025-03-27 23:01:52,987 - INFO - Email sending complete. Success: 6, Failed: 0

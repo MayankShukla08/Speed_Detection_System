@@ -1,0 +1,8 @@
+_id,License Plate,Violation Type,Violation Date,Zone,Location,Speed Limit,Recorded Speed,Evidence,Officer,Notes
+67e50750c2f7ca83aec4c9a6,TN09Z4321,Speeding,2025-03-12T00:00:00.000Z,Zone A,Location A,60,80,speeding_image_001.jpg,Officer A,First speeding violation
+67e50750c2f7ca83aec4c9a7,MH12BG9876,Parking Violation,2025-03-15T00:00:00.000Z,Zone B,Location B,,,parking_image_001.jpg,Officer B,Parking violation at no-parking zone
+67e50750c2f7ca83aec4c9a8,KA01XY5678,Running a Red Light,2025-03-18T00:00:00.000Z,Zone C,Location C,,,red_light_image_001.jpg,Officer C,Vehicle ran the red light at the intersection
+67e50750c2f7ca83aec4c9a9,DL1AB2345,Speeding,2025-03-20T00:00:00.000Z,Zone D,Location D,60,85,speeding_image_002.jpg,Officer D,Second speeding violation
+67e50750c2f7ca83aec4c9aa,GJ05AB1234,Parking Violation,2025-03-22T00:00:00.000Z,Zone E,Location E,,,parking_image_002.jpg,Officer E,Vehicle parked in a no-parking zone
+67e50750c2f7ca83aec4c9ab,RJ14CD8765,Running a Red Light,2025-03-25T00:00:00.000Z,Zone F,Location F,,,red_light_image_002.jpg,Officer F,Vehicle ran a red light at the intersection
+67e50750c2f7ca83aec4c9ac,KL08FG2345,Speeding,2025-03-28T00:00:00.000Z,Zone G,Location G,60,75,speeding_image_003.jpg,Officer G,Third speeding violation

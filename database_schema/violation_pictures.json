@@ -1,0 +1,68 @@
+[
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cab"},
+    "file_path": "violations/cam_01_20231110_143522.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-10T14:35:22Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cac"},
+    "file_path": "violations/cam_03_20231112_092015.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-12T09:20:15Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cad"},
+    "file_path": "violations/officer_cam_20231115_174530.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-15T17:45:30Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cae"},
+    "file_path": "violations/cam_05_20231118_111540.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-18T11:15:40Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610caf"},
+    "file_path": "violations/cam_02_20231120_080525.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-20T08:05:25Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb0"},
+    "file_path": "violations/cam_04_20231122_163010.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-22T16:30:10Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb1"},
+    "file_path": "violations/cam_06_20231124_124050.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-24T12:40:50Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb2"},
+    "file_path": "violations/cam_07_20231125_195530.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-25T19:55:30Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb3"},
+    "file_path": "violations/cam_01_20231126_071540.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-26T07:15:40Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb4"},
+    "file_path": "violations/cam_08_20231128_152520.jpg",
+    "processed": true,
+    "timestamp": {"$date": "2023-11-28T15:25:20Z"}
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb5"},
+    "file_path": "violations/cam_09_20231129_103045.jpg",
+    "processed": false,
+    "timestamp": {"$date": "2023-11-29T10:30:45Z"}
+  }
+] 

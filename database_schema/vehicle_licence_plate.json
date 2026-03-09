@@ -1,0 +1,82 @@
+[
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb6"},
+    "license_plate": "MH-01-AB-1234",
+    "image_path": "violations/cam_01_20231110_143522.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cab"},
+    "timestamp": {"$date": "2023-11-10T14:35:30Z"},
+    "confidence_score": 0.98
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb7"},
+    "license_plate": "MH-02-CD-5678",
+    "image_path": "violations/cam_03_20231112_092015.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cac"},
+    "timestamp": {"$date": "2023-11-12T09:20:25Z"},
+    "confidence_score": 0.95
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb8"},
+    "license_plate": "MH-03-EF-9012",
+    "image_path": "violations/officer_cam_20231115_174530.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cad"},
+    "timestamp": {"$date": "2023-11-15T17:45:40Z"},
+    "confidence_score": 0.99
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cb9"},
+    "license_plate": "MH-04-GH-3456",
+    "image_path": "violations/cam_05_20231118_111540.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cae"},
+    "timestamp": {"$date": "2023-11-18T11:15:55Z"},
+    "confidence_score": 0.94
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cba"},
+    "license_plate": "MH-05-IJ-7890",
+    "image_path": "violations/cam_02_20231120_080525.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610caf"},
+    "timestamp": {"$date": "2023-11-20T08:05:35Z"},
+    "confidence_score": 0.97
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cbb"},
+    "license_plate": "MH-06-KL-1234",
+    "image_path": "violations/cam_04_20231122_163010.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cb0"},
+    "timestamp": {"$date": "2023-11-22T16:30:25Z"},
+    "confidence_score": 0.96
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cbc"},
+    "license_plate": "MH-01-AB-1234",
+    "image_path": "violations/cam_06_20231124_124050.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cb1"},
+    "timestamp": {"$date": "2023-11-24T12:41:05Z"},
+    "confidence_score": 0.97
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cbd"},
+    "license_plate": "MH-07-MN-5678",
+    "image_path": "violations/cam_07_20231125_195530.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cb2"},
+    "timestamp": {"$date": "2023-11-25T19:55:45Z"},
+    "confidence_score": 0.93
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cbe"},
+    "license_plate": "MH-08-OP-9012",
+    "image_path": "violations/cam_01_20231126_071540.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cb3"},
+    "timestamp": {"$date": "2023-11-26T07:15:55Z"},
+    "confidence_score": 0.98
+  },
+  {
+    "_id": {"$oid": "60d21b4667d0d8992e610cbf"},
+    "license_plate": "MH-02-CD-5678",
+    "image_path": "violations/cam_08_20231128_152520.jpg",
+    "violation_id": {"$oid": "60d21b4667d0d8992e610cb4"},
+    "timestamp": {"$date": "2023-11-28T15:25:35Z"},
+    "confidence_score": 0.96
+  }
+] 

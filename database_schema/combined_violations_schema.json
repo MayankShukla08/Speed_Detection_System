@@ -1,0 +1,109 @@
+{
+  "collectionName": "combined_violations",
+  "fields": {
+    "_id": {
+      "type": "ObjectId",
+      "description": "Unique identifier for the violation record"
+    },
+    "License Plate": {
+      "type": "String",
+      "description": "Vehicle license plate number",
+      "required": true
+    },
+    "Name": {
+      "type": "String",
+      "description": "Name of the vehicle owner or driver",
+      "required": false
+    },
+    "Violation Date": {
+      "type": "Date",
+      "description": "Date and time when the violation occurred",
+      "required": true
+    },
+    "Violation Type": {
+      "type": "String",
+      "description": "Type of violation (e.g., Speeding, Parking Violation, Running a Red Light)",
+      "required": true
+    },
+    "Zone": {
+      "type": "String",
+      "description": "Traffic zone where the violation occurred",
+      "required": false
+    },
+    "Location": {
+      "type": "String",
+      "description": "Specific location where the violation occurred",
+      "required": true
+    },
+    "Speed Limit": {
+      "type": "Number",
+      "description": "Posted speed limit (only for speeding violations)",
+      "required": false
+    },
+    "Recorded Speed": {
+      "type": "Number",
+      "description": "Speed recorded by the enforcement system (only for speeding violations)",
+      "required": false
+    },
+    "Evidence": {
+      "type": "String",
+      "description": "Filename or reference to photo evidence of the violation",
+      "required": false
+    },
+    "Officer": {
+      "type": "String",
+      "description": "Officer who recorded or validated the violation",
+      "required": false
+    },
+    "Notes": {
+      "type": "String",
+      "description": "Additional details about the violation",
+      "required": false
+    },
+    "Status": {
+      "type": "String",
+      "description": "Current status of the violation (Recorded, Processed, etc.)",
+      "enum": ["Recorded", "Processed", "Cancelled"],
+      "required": true
+    },
+    "Action Taken": {
+      "type": "String",
+      "description": "Enforcement action (Warning Issued, Fine Imposed, etc.)",
+      "required": false
+    },
+    "Frequency": {
+      "type": "Number",
+      "description": "Number of times this violation has occurred for this vehicle",
+      "required": false
+    },
+    "Notified": {
+      "type": "Boolean",
+      "description": "Whether the owner has been notified of the violation",
+      "required": true,
+      "default": false
+    },
+    "Notification Date": {
+      "type": "Date",
+      "description": "When the notification was sent to the owner",
+      "required": false
+    }
+  },
+  "indexes": [
+    {
+      "fields": ["License Plate", "Violation Date"],
+      "unique": true
+    },
+    {
+      "fields": ["License Plate"]
+    },
+    {
+      "fields": ["Violation Date"]
+    },
+    {
+      "fields": ["Status"]
+    },
+    {
+      "fields": ["Violation Type"]
+    }
+  ]
+} 
